@@ -67,25 +67,29 @@ a {
   line-height: 1.2;
 }
 
-.logo-placeholder {
+.logo-mark {
   display: inline-grid;
   place-items: center;
   width: 50px;
   height: 50px;
   flex: 0 0 auto;
-  border: 1px dashed rgba(15, 107, 84, 0.58);
+  overflow: hidden;
+  border: 1px solid rgba(15, 107, 84, 0.16);
   border-radius: 8px;
-  color: var(--brand);
-  background: linear-gradient(135deg, #f8fbf8, #e7f1eb);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
+  background: var(--white);
+  box-shadow: 0 8px 20px rgba(19, 33, 29, 0.08);
 }
 
-.logo-placeholder.small {
+.logo-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo-mark.small {
   width: 38px;
   height: 38px;
-  font-size: 0.62rem;
 }
 
 .site-nav {
@@ -232,28 +236,41 @@ h3 {
   gap: 16px;
 }
 
-.photo-placeholder,
+.photo-frame,
 .photo-tile {
-  display: grid;
-  place-items: center;
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  min-height: 455px;
-  border: 1px dashed rgba(15, 107, 84, 0.52);
+  margin: 0;
+  border: 1px solid rgba(15, 107, 84, 0.12);
   border-radius: 8px;
-  color: var(--brand-deep);
-  background:
-    linear-gradient(135deg, rgba(15, 107, 84, 0.18), rgba(182, 132, 55, 0.2)),
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.45) 0 14px, transparent 14px 28px);
+  background: var(--white);
   box-shadow: var(--shadow);
-  text-align: center;
-  font-weight: 800;
 }
 
-.photo-placeholder span,
-.photo-tile span {
-  padding: 12px 14px;
+.photo-frame img,
+.photo-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-photo {
+  aspect-ratio: 3 / 2;
+  min-height: 455px;
+}
+
+.photo-tile figcaption {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 8px 12px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.82);
+  color: var(--white);
+  background: rgba(9, 63, 52, 0.84);
+  font-size: 0.88rem;
+  font-weight: 800;
 }
 
 .credential-panel {
@@ -379,8 +396,65 @@ h3 {
   color: var(--muted);
 }
 
-.process-section {
+.countries-section {
   background: var(--white);
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.country-card {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 107, 84, 0.12);
+  border-radius: 8px;
+  background: var(--ink);
+  box-shadow: 0 14px 34px rgba(19, 33, 29, 0.1);
+}
+
+.country-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(19, 33, 29, 0.04), rgba(19, 33, 29, 0.78));
+}
+
+.country-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+
+.country-card div {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1;
+  color: var(--white);
+}
+
+.country-card span {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.country-card h3 {
+  font-size: 1.28rem;
+}
+
+.process-section {
+  background: #fbfcf8;
 }
 
 .process-heading {
@@ -426,8 +500,9 @@ h3 {
 }
 
 .photo-tile {
+  aspect-ratio: 3 / 2;
   min-height: 260px;
-  box-shadow: none;
+  box-shadow: 0 12px 34px rgba(19, 33, 29, 0.09);
 }
 
 .contact-section {
@@ -538,11 +613,17 @@ h3 {
 
   .summary-band,
   .service-grid,
+  .country-grid,
   .photo-grid {
     grid-template-columns: 1fr;
   }
 
-  .photo-placeholder {
+  .country-card,
+  .country-card img {
+    min-height: 260px;
+  }
+
+  .hero-photo {
     min-height: 340px;
   }
 
@@ -561,7 +642,7 @@ h3 {
     font-size: 0.7rem;
   }
 
-  .logo-placeholder {
+  .logo-mark {
     width: 42px;
     height: 42px;
   }
