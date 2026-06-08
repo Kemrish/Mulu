@@ -134,8 +134,8 @@ a {
   grid-template-columns: minmax(0, 1fr) minmax(330px, 0.86fr);
   gap: clamp(30px, 5vw, 76px);
   align-items: center;
-  min-height: calc(100vh - 82px);
-  padding: clamp(54px, 8vw, 108px) clamp(18px, 5vw, 72px) 46px;
+  min-height: auto;
+  padding: clamp(8px, 1.5vw, 18px) clamp(18px, 5vw, 72px) 34px;
   background:
     linear-gradient(90deg, rgba(251, 252, 248, 0.96), rgba(251, 252, 248, 0.72)),
     radial-gradient(circle at 82% 15%, rgba(182, 132, 55, 0.22), transparent 32%),
